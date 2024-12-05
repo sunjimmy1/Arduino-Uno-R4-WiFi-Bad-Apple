@@ -5,9 +5,9 @@ from os.path import isfile, join, abspath
 
 bmpsPath = join(abspath("."), "bmps")
 
-onlyfiles = [join(bmpsPath,f) for f in listdir(bmpsPath) if isfile(join(bmpsPath,f))]
+onlyfiles = [join(bmpsPath, f) for f in listdir(bmpsPath) if isfile(join(bmpsPath, f))]
 onlyfiles.sort()
-with open('src/image.h', 'w') as f:
+with open("src/image.h", "w") as f:
     f.write(f"unsigned long frames[{len(onlyfiles)}][3] = \n")
     f.write("{")
     for bmp in onlyfiles:
@@ -26,4 +26,3 @@ with open('src/image.h', 'w') as f:
             f.write(f"{hex(int(binaryString[64:], 2))},\n")
             f.write("},\n")
     f.write("};\n")
-

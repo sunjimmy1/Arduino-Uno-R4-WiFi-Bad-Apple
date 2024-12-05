@@ -2,14 +2,17 @@
 #include "image.h"
 ArduinoLEDMatrix matrix;
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   matrix.begin();
 }
-  
-void loop(){
-  for(int i =0; i< 1308;i++){
+
+void loop()
+{
+  for (int i = 0; i < 1308; i++)
+  {
     matrix.loadFrame(frames[i]);
-    delay(1000/6);
+    delay(1000 / 6);
   }
 }
